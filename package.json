@@ -1,0 +1,19 @@
+{
+  "name": "webpack-",
+  "version": "1.0.0",
+  "description": "webpack学习路径",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuyan-run/webpack-.git"
+  },
+  "author": "anning.xiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fuyan-run/webpack-/issues"
+  },
+  "homepage": "https://github.com/fuyan-run/webpack-#readme"
+}
