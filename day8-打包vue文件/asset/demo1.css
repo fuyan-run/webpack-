@@ -1,0 +1,9 @@
+body:after{
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: url(./5bf37e1b3b038.jpg) no-repeat 100%; 
+}

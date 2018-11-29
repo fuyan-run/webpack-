@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
 const webpack = require('webpack'); // 用于访问内置插件
 var ProgressBarPlugin = require('progress-bar-webpack-plugin'); // 打包进度插件
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
+var vue_loader_plugin = require('vue-loader/lib/plugin');// 配合vue加载器的辅助插件
 
 const config = {
   mode: 'production', // 打包环境的配置
@@ -14,6 +16,11 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      { 
+        test: /\.vue$/,
+        exclude: /node_modules/,
+        loader: "vue-loader"
       },
       {
         test: /\.less$/,
@@ -58,11 +65,14 @@ const config = {
     ]
   },
   plugins: [
+    new UglifyJsPlugin(), // 配置看的我一辆蒙蔽，好奇的请你自己去试下
     new HtmlWebpackPlugin({
       title: `${Math.random()}___QQ:752781621`,
-      filename: 'index.html'
+      filename: 'index.html',
+      inject: 'body'
     }),
-    new ProgressBarPlugin()
+    new ProgressBarPlugin(),
+    new vue_loader_plugin()//使用引入的插件
   ]
 };
 
