@@ -4,9 +4,8 @@ var ProgressBarPlugin = require('progress-bar-webpack-plugin'); // 打包进度�
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 var vue_loader_plugin = require('vue-loader/lib/plugin');// 配合vue加载器的辅助插件
 
-
 const config = {
-  mode: 'production', // 打包环境的配置
+  mode: '', // 打包环境的配置 production
   entry: './main.js',
   output: {
     filename: 'bundle.js'
