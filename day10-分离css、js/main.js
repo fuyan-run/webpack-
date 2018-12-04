@@ -1,6 +1,7 @@
 // var style = require('./asset/demo.less') 两种方式都行
 import './asset/demo.less';
 require('./asset/demo1.css')
+require('./asset/try.js')
 
 import Vue from "vue"
 import App from './App.vue';

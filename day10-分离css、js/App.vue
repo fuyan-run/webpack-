@@ -6,6 +6,7 @@
         <div>
             {{evn}}
         </div>
+        <p style="color: yellow;">yellow</p>
     </div>
 </template>
 

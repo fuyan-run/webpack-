@@ -1,0 +1,14 @@
+#ff64 {
+    color: #ff5400;
+}
+
+
+body:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: url(../../static/img/5bf37e1b3b038.18b5e15.img.jpg) no-repeat 100%; 
+}

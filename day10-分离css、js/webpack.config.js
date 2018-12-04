@@ -3,13 +3,22 @@ const webpack = require('webpack'); // 用于访问内置插件
 var ProgressBarPlugin = require('progress-bar-webpack-plugin'); // 打包进度插件
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 var vue_loader_plugin = require('vue-loader/lib/plugin');// 配合vue加载器的辅助插件
+
+
+let path = require('path')
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 提取js插件
+
+// let pa = require('./config.js')
+
+
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin"); // 计算打包耗时
 const smp = new SpeedMeasurePlugin();
 const config = smp.wrap({
   mode: 'production', // 打包环境的配置 production
   entry: './main.js',
   output: {
-    filename: 'bundle.js'
+    filename: 'static/js/[name][hash].js-xiaobai.js'
   },
   module: {
     rules: [
@@ -43,8 +52,16 @@ const config = smp.wrap({
         exclude: /node_modules/,
         use: [
           {
-            loader: 'style-loader'
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it use publicPath in webpackOptions.output
+              publicPath: '../../' // 比如打包后的img找不到路径 !!!!!!!!!!!!!!!切记
+            }
           },
+          // {
+          //   loader: 'style-loader' // 使用css提取插件，就不能使用style-loader
+          // },
           {
             loader: 'css-loader'
           }
@@ -59,7 +76,8 @@ const config = smp.wrap({
           options: {
             limit: 999,
             mimetype: 'image/png',
-            // fallback: 'responsive-loader' // 未知错误所以需要注释(待解决ING)
+            // name: "static/img/[name].[hash:7].img.[ext]"
+            name: "static/img/[name].[hash:7].img.[ext]"
           }
         }]
       },
@@ -74,11 +92,14 @@ const config = smp.wrap({
     }),
     new ProgressBarPlugin(),
     new vue_loader_plugin(), //使用引入的插件
+    
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "static/css/[hash][name].xiaobai.css", // 要想输出到文件夹，两个必须相同，比如这个 static/css/
+      chunkFilename: "static/css/[hash][id].xiaobai.css" // 两个都要写
+    })
   ]
 })
 
-// smp.wrap({
-//   plugins: [
-//   ]
-// })
 module.exports = config;
