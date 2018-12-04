@@ -19,6 +19,7 @@
     "ora": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.11.0",
     "responsive-loader": "^1.1.0",
+    "speed-measure-webpack-plugin": "^1.2.3",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",
@@ -32,7 +33,9 @@
     "dev": "rm -rf ./dist && webpack --mode development",
     "dev2": "rm -rf ./dist && cross-env NODE_ENV=uat node build-demo.js",
     "test2": "rm -rf ./dist && webpack --mode development --watch --progress --display-modules --colors --display-reasons",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "dev3": "rm -rf ./dist && webpack --mode development --output-filename=[name][hash].bundle.js",
+    "node1": "rm -rf ./dist && webpack --mode development --output-filename=[name][hash].xiaobai.js"
   },
   "author": "",
   "license": "ISC"

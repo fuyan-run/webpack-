@@ -21,3 +21,4 @@ var ora = require('ora'),
 	setTimeout(() => {
 		spinner.stop();
 	}, 3000);
+	

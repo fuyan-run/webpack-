@@ -1,13 +1,14 @@
 <template>
     <div>
         <!-- <div id="app"></div> -->
-        <p>{{msg}}</p>
+        <p id="ff64">{{msg}}</p>
         <hr>
         <div>
             {{evn}}
         </div>
     </div>
 </template>
+
 <script>
 export default {
     data () {
@@ -24,3 +25,6 @@ export default {
 }
 </script>
 
+<style scoped>
+@import "./asset/demo2.css";
+</style>

@@ -3,9 +3,10 @@ const webpack = require('webpack'); // 用于访问内置插件
 var ProgressBarPlugin = require('progress-bar-webpack-plugin'); // 打包进度插件
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 var vue_loader_plugin = require('vue-loader/lib/plugin');// 配合vue加载器的辅助插件
-
-const config = {
-  mode: '', // 打包环境的配置 production
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin"); // 计算打包耗时
+const smp = new SpeedMeasurePlugin();
+const config = smp.wrap({
+  mode: 'production', // 打包环境的配置 production
   entry: './main.js',
   output: {
     filename: 'bundle.js'
@@ -72,8 +73,12 @@ const config = {
       inject: 'body'
     }),
     new ProgressBarPlugin(),
-    new vue_loader_plugin()//使用引入的插件
+    new vue_loader_plugin(), //使用引入的插件
   ]
-};
+})
 
+// smp.wrap({
+//   plugins: [
+//   ]
+// })
 module.exports = config;
