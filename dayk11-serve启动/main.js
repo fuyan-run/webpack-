@@ -25,7 +25,7 @@ new Vue({
     },
 }).$mount("#app");
 
-// new Vue({
+// new Vue({ // 两种版本
 //     components: { App },
 //     template: '<App/>'
 //   }).$mount("#app")

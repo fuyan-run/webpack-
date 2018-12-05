@@ -45,7 +45,9 @@
     "dev3": "rm -rf ./dist && webpack --mode development --output-filename=[name][hash].bundle.js",
     "node1": "rm -rf ./dist && webpack --mode development --output-filename=[name][hash].js-xiaobai.js",
     "node2": "rm -rf ./dist && webpack --mode development",
-    "node3": "rm -rf ./dist && webpack-dev-server --inline"
+    "node3": "rm -rf ./dist && webpack-dev-server --inline",
+    "node4": "rm -rf ./dist && webpack --mode development && node koa2_serve.js",
+    "node5": "rm -rf ./dist && webpack --mode development --watch --allowed-hosts"
   },
   "author": "",
   "license": "ISC"

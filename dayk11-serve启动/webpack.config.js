@@ -82,6 +82,16 @@ const config = smp.wrap({
       },
     ]
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
+  watchOptions: { // 配置服务
+    poll: 1000,
+    aggregateTimeout: 300, // The default
+    ignored: /node_modules/
+  },
   plugins: [
     new UglifyJsPlugin(), // 配置看的我一辆蒙蔽，好奇的请你自己去试下
     new HtmlWebpackPlugin({
