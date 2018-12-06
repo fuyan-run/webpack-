@@ -34,7 +34,8 @@
     "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -47,7 +48,8 @@
     "node2": "rm -rf ./dist && webpack --mode development",
     "node3": "rm -rf ./dist && webpack-dev-server --inline",
     "node4": "rm -rf ./dist && webpack --mode development && node koa2_serve.js",
-    "node5": "rm -rf ./dist && webpack --mode development --watch --allowed-hosts"
+    "node5": "rm -rf ./dist && webpack --mode development --watch && webpack-dev-server --host 127.0.0.1:9000",
+    "node6": "node_modules/.bin/webpack-dev-server"
   },
   "author": "",
   "license": "ISC"

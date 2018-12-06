@@ -73,19 +73,18 @@ const config = smp.wrap({
           // url-loader包含file-loader ---一般只需要下载 url-loader 但是这个项目不下载file-loader配置时候会报错
           loader: 'url-loader',
           options: {
-            limit: 999,
-            mimetype: 'image/png',
-            // name: "static/img/[name].[hash:7].img.[ext]"
+            limit: 244,
             name: "static/img/[name].[hash:7].img.[ext]"
           }
         }]
       },
     ]
   },
-  devServer: {
+  devServer: { // webpack微服务
+    host: '127.0.0.1',
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
+    port: 5500
   },
   watchOptions: { // 配置服务
     poll: 1000,
@@ -93,6 +92,7 @@ const config = smp.wrap({
     ignored: /node_modules/
   },
   plugins: [
+    new webpack.BannerPlugin('web小白版权所有！'), // 版权的添加
     new UglifyJsPlugin(), // 配置看的我一辆蒙蔽，好奇的请你自己去试下
     new HtmlWebpackPlugin({
       title: `${Math.random()}___QQ:752781621`,

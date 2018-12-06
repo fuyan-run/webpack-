@@ -15,7 +15,7 @@ export default {
     data () {
         return {
             evn: '',
-            msg: 'web小白最牛逼!!! qq群: 213787432'
+            msg: 'web小白最牛逼!!! qq群: 213787432---修改'
         }
     },
     created () {
